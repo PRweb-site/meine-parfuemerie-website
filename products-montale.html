@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montale - Parfümerie Luxuria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #d4d4d4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #444;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #b0b0b0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #999;
+        }
+
+        .sidebar ul li a.sub-category {
+            font-weight: normal;
+        }
+
+        .brands-list {
+            display: none;
+            padding-left: 10px;
+        }
+
+        .brands-list.active {
+            display: block;
+        }
+
+        .brands-list li a {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #c0c0c0;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+
+        .brands-list li a:hover {
+            background-color: #aaa;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            background-color: #f7f7f7;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-item {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #555 !important;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-260px);
+                z-index: 3;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+
+            .product-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html#ueber-uns">Über Uns</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleBrands()" class="main-category">Parfüms</a></li>
+            <ul class="brands-list" id="brandsList">
+                <li><a href="all-products.html" class="sub-category">Alle Parfüms</a></li>
+                <li><a href="products-parfumsdemarley.html" class="sub-category">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html" class="sub-category">Xerjoff</a></li>
+                <li><a href="products-initio.html" class="sub-category">Initio</a></li>
+                <li><a href="products-montale.html" class="sub-category">Montale</a></li>
+                <li><a href="products-mancera.html" class="sub-category">Mancera</a></li>
+                <li><a href="products-nishane.html" class="sub-category">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Montale</h1>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="INFINITY.jpg" alt="Infinity">
+                <h2>Infinity</h2>
+            </div>
+            <div class="product-item">
+                <img src="STARRY_NIGHT.jpg" alt="Starry Night">
+                <h2>Starry Night</h2>
+            </div>
+            <div class="product-item">
+                <img src="HERBAL_AQUATICA.jpg" alt="Herbal Aquatica">
+                <h2>Herbal Aquatica</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrands() {
+            const brandsList = document.getElementById('brandsList');
+            brandsList.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle Parfüms - Parfümerie Luxuria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #d4d4d4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 2;
+            border-right: 1px solid #fff; /* Weiße Linie rechts von der Seitenleiste */
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #444;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #b0b0b0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #999;
+        }
+
+        .sidebar ul li a.sub-category {
+            font-weight: normal;
+        }
+
+        .brands-list {
+            display: none;
+            padding-left: 10px;
+        }
+
+        .brands-list.active {
+            display: block;
+        }
+
+        .brands-list li a {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #c0c0c0;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+
+        .brands-list li a:hover {
+            background-color: #aaa;
+        }
+
+        .section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            margin-left: 251px; /* Anpassung, um die weiße Linie korrekt anzuzeigen */
+            background-color: transparent;
+            color: #333;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-item {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #555 !important;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-260px);
+                z-index: 3;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .section {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+
+            .product-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html#ueber-uns">Über Uns</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleBrands()" class="main-category">Parfüms</a></li>
+            <ul class="brands-list" id="brandsList">
+                <li><a href="all-products.html" class="sub-category">Alle Parfüms</a></li>
+                <li><a href="products-parfumsdemarley.html" class="sub-category">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html" class="sub-category">Xerjoff</a></li>
+                <li><a href="products-initio.html" class="sub-category">Initio</a></li>
+                <li><a href="products-montale.html" class="sub-category">Montale</a></li>
+                <li><a href="products-mancera.html" class="sub-category">Mancera</a></li>
+                <li><a href="products-nishane.html" class="sub-category">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h1>Alle Parfüms</h1>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="LAYTON.jpg" alt="Layton">
+                <h2>Layton</h2>
+            </div>
+            <div class="product-item">
+                <img src="GREENLEY.jpg" alt="Greenley">
+                <h2>Greenley</h2>
+            </div>
+            <div class="product-item">
+                <img src="ALTHAIR.jpg" alt="Althair">
+                <h2>Althair</h2>
+            </div>
+            <div class="product-item">
+                <img src="NAXOS.jpg" alt="Naxos">
+                <h2>Naxos</h2>
+            </div>
+            <div class="product-item">
+                <img src="ACCENTO.jpg" alt="Accento">
+                <h2>Accento</h2>
+            </div>
+            <div class="product-item">
+                <img src="XXY.jpg" alt="XXY">
+                <h2>XXY</h2>
+            </div>
+            <div class="product-item">
+                <img src="SIDE_EFFECT.jpg" alt="Side Effect">
+                <h2>Side Effect</h2>
+            </div>
+            <div class="product-item">
+                <img src="MUSK_THERAPY.jpg" alt="Musk Therapy">
+                <h2>Musk Therapy</h2>
+            </div>
+            <div class="product-item">
+                <img src="ABSOLUTE_APHRODISIAC.jpg" alt="Absolute Aphrodisiac">
+                <h2>Absolute Aphrodisiac</h2>
+            </div>
+            <div class="product-item">
+                <img src="INFINITY.jpg" alt="Infinity">
+                <h2>Infinity</h2>
+            </div>
+            <div class="product-item">
+                <img src="STARRY_NIGHT.jpg" alt="Starry Night">
+                <h2>Starry Night</h2>
+            </div>
+            <div class="product-item">
+                <img src="HERBAL_AQUATICA.jpg" alt="Herbal Aquatica">
+                <h2>Herbal Aquatica</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrands() {
+            const brandsList = document.getElementById('brandsList');
+            brandsList.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

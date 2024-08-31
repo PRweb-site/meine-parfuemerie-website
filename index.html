@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startseite - Parfümerie Luxuria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #d4d4d4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 2;
+            border-right: 1px solid #fff; /* Weiße Linie rechts von der Seitenleiste */
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #444;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #b0b0b0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #999;
+        }
+
+        .sidebar ul li a.sub-category {
+            font-weight: normal;
+        }
+
+        .brands-list {
+            display: none;
+            padding-left: 10px;
+        }
+
+        .brands-list.active {
+            display: block;
+        }
+
+        .brands-list li a {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #c0c0c0;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+
+        .brands-list li a:hover {
+            background-color: #aaa;
+        }
+
+        .section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            margin-left: 251px; /* Anpassung, um die weiße Linie korrekt anzuzeigen */
+            background-color: transparent;
+            color: #333;
+        }
+
+        #startseite {
+            position: relative;
+            background: url('A_realistic_stock-image_style_interior_of_a_perfum.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        #startseite::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(50, 50, 50, 0.5);
+            z-index: 1;
+        }
+
+        #startseite .content {
+            position: relative;
+            z-index: 2;
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        #startseite h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        #parfuems-fuer-sie {
+            background-color: transparent;
+            padding: 60px 20px;
+            text-align: left;
+            position: relative;
+            z-index: 3;
+            top: 100px;
+            left: -10%;
+        }
+
+        #parfuems-fuer-sie h2 {
+            font-size: 42px;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .product-item {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #555 !important;
+        }
+
+        #ueber-uns {
+            background-color: #f7f7f7;
+            color: #444;
+            padding: 40px 20px;
+        }
+
+        #ueber-uns .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #ueber-uns .content img {
+            max-width: 45%;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            filter: grayscale(100%);
+        }
+
+        #ueber-uns .text-content {
+            flex: 1;
+        }
+
+        #gradient-transition {
+            background: linear-gradient(to bottom, #f7f7f7 0%, #e0e0e0 100%); /* Gradient von Weiß zu Hellgrau */
+            padding: 0;
+            margin: 0;
+            margin-left: 251px; /* Sorgt dafür, dass der Gradient nicht über die Linie geht */
+            height: 50px; /* Höhe des Gradientenübergangs */
+        }
+
+        #kontakt {
+            background-color: #e0e0e0; /* Hellgrauer Hintergrund für die Kontaktseite */
+            color: #444;
+            padding: 40px 20px;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .contact-info p strong {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-260px);
+                z-index: 3;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+
+            #ueber-uns .content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #ueber-uns .content img {
+                margin-right: 0;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            #gradient-transition {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="#startseite">Startseite</a></li>
+            <li><a href="#ueber-uns">Über Uns</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleBrands()" class="main-category">Parfüms</a></li>
+            <ul class="brands-list" id="brandsList">
+                <li><a href="all-products.html" class="sub-category">Alle Parfüms</a></li>
+                <li><a href="products-parfumsdemarley.html" class="sub-category">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html" class="sub-category">Xerjoff</a></li>
+                <li><a href="products-initio.html" class="sub-category">Initio</a></li>
+                <li><a href="products-montale.html" class="sub-category">Montale</a></li>
+                <li><a href="products-mancera.html" class="sub-category">Mancera</a></li>
+                <li><a href="products-nishane.html" class="sub-category">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="section" id="startseite">
+        <div class="content">
+            <h1>Willkommen bei Parfümerie Luxuria</h1>
+            <p>Entdecken Sie unsere exklusiven Düfte und Kollektionen.</p>
+        </div>
+        <div class="section" id="parfuems-fuer-sie">
+            <h2>Parfüms für Sie</h2>
+            <div class="product-list" id="randomProducts">
+                <!-- Hier werden zufällige Produkte eingefügt -->
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="ueber-uns">
+        <div class="content">
+            <img src="A_monochrome,_realistic_image_of_a_perfume_shop_te.png" alt="Parfümerieteam">
+            <div class="text-content">
+                <h1>Unser engagiertes Team: Die Duft-Experten hinter Luxuria</h1>
+                <p>Das Team der Parfümerie Luxuria besteht aus engagierten und erfahrenen Fachleuten, die ihre Leidenschaft für Düfte teilen. Jeder Mitarbeiter bringt seine eigene Expertise und Kreativität mit, um Ihnen ein außergewöhnliches Erlebnis zu bieten. Unser Team ist bestrebt, Sie bei der Auswahl des perfekten Duftes zu unterstützen und steht Ihnen mit Rat und Tat zur Seite.</p>
+                
+                <h1>Eine Duftreise: Die Geschichte der Parfümerie Luxuria</h1>
+                <p>Die Geschichte der Parfümerie Luxuria beginnt vor über zwei Jahrzehnten, als wir unsere Türen zum ersten Mal öffneten. Gegründet wurde das Unternehmen von einem visionären Parfümliebhaber, der es sich zur Aufgabe gemacht hatte, einzigartige und luxuriöse Düfte aus aller Welt zu präsentieren. Mit der Zeit wuchs unser Sortiment, und wir konnten exklusive Marken und seltene Düfte in unser Angebot aufnehmen.</p>
+                <p>Heute sind wir stolz darauf, eine der führenden Parfümerien der Region zu sein, die für ihre exklusive Auswahl und ihren erstklassigen Service bekannt ist. Unser Ziel war und ist es, jedem Kunden ein unvergessliches Dufterlebnis zu bieten, das noch lange nach dem Besuch bei uns nachwirkt.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Übergangsbereich zwischen Über Uns und Kontakt -->
+    <div id="gradient-transition"></div>
+
+    <div class="section" id="kontakt">
+        <div class="content">
+            <div class="contact-info">
+                <h1>Kontaktieren Sie uns</h1>
+                <p>Wir freuen uns darauf, von Ihnen zu hören! Ob Sie Fragen zu unseren Produkten haben, eine Bestellung aufgeben möchten oder einfach nur mehr über uns erfahren wollen, wir sind hier, um Ihnen zu helfen.</p>
+                <p><strong>Adresse:</strong> Luxuria Parfümerie, Duftstraße 123, 10115 Berlin, Deutschland</p>
+                <p><strong>Telefon:</strong> +49 30 1234567</p>
+                <p><strong>E-Mail:</strong> kontakt@luxuriaparfuemerie.de</p>
+                <p>Unser engagiertes Team steht Ihnen gerne zur Verfügung, um sicherzustellen, dass Sie das perfekte Dufterlebnis finden. Zögern Sie nicht, uns jederzeit zu kontaktieren!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrands() {
+            const brandsList = document.getElementById('brandsList');
+            brandsList.classList.toggle('active');
+        }
+
+        // Zufällige Produkte für "Parfüms für Sie" auswählen
+        const products = [
+            { name: "Layton", img: "LAYTON.jpg" },
+            { name: "Infinity", img: "INFINITY.jpg" },
+            { name: "Side Effect", img: "SIDE_EFFECT.jpg" },
+            { name: "Starry Night", img: "STARRY_NIGHT.jpg" },
+            { name: "Absolute Aphrodisiac", img: "ABSOLUTE_APHRODISIAC.jpg" },
+            { name: "Greenley", img: "GREENLEY.jpg" },
+            { name: "Naxos", img: "NAXOS.jpg" },
+            { name: "Accento", img: "ACCENTO.jpg" },
+            { name: "XXY", img: "XXY.jpg" },
+            { name: "Herbal Aquatica", img: "HERBAL_AQUATICA.jpg" }
+        ];
+
+        function getRandomProducts(count) {
+            const shuffled = products.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function displayRandomProducts() {
+            const randomProducts = getRandomProducts(3);
+            const container = document.getElementById('randomProducts');
+            randomProducts.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                
+                productItem.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                `;
+                
+                container.appendChild(productItem);
+            });
+
+            // Fügen Sie das vierte Fenster hinzu
+            const discoverAllItem = document.createElement('div');
+            discoverAllItem.classList.add('product-item');
+            discoverAllItem.innerHTML = `
+                <img src="MORE.jpg" alt="Alle unsere Parfüms entdecken">
+                <h2>Alle unsere Parfüms entdecken</h2>
+            `;
+            discoverAllItem.onclick = () => {
+                window.location.href = "all-products.html";
+            };
+            container.appendChild(discoverAllItem);
+        }
+
+        // Beim Laden der Seite zufällige Produkte anzeigen
+        window.onload = displayRandomProducts;
+    </script>
+
+</body>
+</html>

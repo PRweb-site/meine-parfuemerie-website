@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Parfümerie Luxuria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 2;
+        }
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .sidebar ul li a:hover {
+            background-color: #ccc;
+        }
+        .sidebar ul li a.sub-category {
+            font-weight: normal;
+        }
+        .brands-list {
+            display: none;
+            padding-left: 10px;
+        }
+        .brands-list.active {
+            display: block;
+        }
+        .brands-list li a {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #eaeaea;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+        .brands-list li a:hover {
+            background-color: #d4d4d4;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+        }
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+        .contact-info p strong {
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-260px);
+                z-index: 3;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .content {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html#ueber-uns">Über Uns</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleBrands()" class="main-category">Parfüms</a></li>
+            <ul class="brands-list" id="brandsList">
+                <li><a href="all-products.html" class="sub-category">Alle Parfüms</a></li>
+                <li><a href="products-parfumsdemarley.html" class="sub-category">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html" class="sub-category">Xerjoff</a></li>
+                <li><a href="products-initio.html" class="sub-category">Initio</a></li>
+                <li><a href="products-montale.html" class="sub-category">Montale</a></li>
+                <li><a href="products-mancera.html" class="sub-category">Mancera</a></li>
+                <li><a href="products-nishane.html" class="sub-category">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="contact-info">
+            <h1>Kontaktieren Sie uns</h1>
+            <p>Wir freuen uns darauf, von Ihnen zu hören! Ob Sie Fragen zu unseren Produkten haben, eine Bestellung aufgeben möchten oder einfach nur mehr über uns erfahren wollen, wir sind hier, um Ihnen zu helfen.</p>
+            <p><strong>Adresse:</strong> Luxuria Parfümerie, Duftstraße 123, 10115 Berlin, Deutschland</p>
+            <p><strong>Telefon:</strong> +49 30 1234567</p>
+            <p><strong>E-Mail:</strong> kontakt@luxuriaparfuemerie.de</p>
+            <p>Unser engagiertes Team steht Ihnen gerne zur Verfügung, um sicherzustellen, dass Sie das perfekte Dufterlebnis finden. Zögern Sie nicht, uns jederzeit zu kontaktieren!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrands() {
+            const brandsList = document.getElementById('brandsList');
+            brandsList.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

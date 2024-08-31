@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte - Parfümerie Luxuria</title>
+    <style>
+        /* Grundlegende Stile */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f9f9f9;
+        }
+
+        /* Seitenleisten-Stil */
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            transform: translateX(0);
+            z-index: 999;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-260px);
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #ccc;
+        }
+
+        .sidebar .brands-list {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li.brands a {
+            padding: 15px 20px;
+            font-size: 18px;
+            background-color: #bbb;
+        }
+
+        .sidebar ul li.brands.active + .brands-list {
+            display: block;
+        }
+
+        /* Inhalt-Layout */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Toggle-Button für mobile Ansicht */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-260px);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+            .content {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-btn" onclick="toggleSidebar()">☰ Menü</div>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-uns.html">Über Uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li class="brands"><a href="javascript:void(0)" onclick="toggleBrands()">Parfüms</a></li>
+            <ul class="brands-list">
+                <li><a href="products-parfumsdemarley.html">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html">Xerjoff</a></li>
+                <li><a href="products-initio.html">Initio</a></li>
+                <li><a href="products-montale.html">Montale</a></li>
+                <li><a href="products-mancera.html">Mancera</a></li>
+                <li><a href="products-nishane.html">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Unsere Produktkollektion</h1>
+        <p>Durchstöbern Sie unsere breite Auswahl an exklusiven Düften.</p>
+        <!-- Hier können allgemeine Produkte aufgelistet werden -->
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function toggleBrands() {
+            const brands = document.querySelector('.brands');
+            brands.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

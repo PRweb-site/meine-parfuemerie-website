@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initio - Parfümerie Luxuria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding-top: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #ccc;
+        }
+
+        .brands-list {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .brands-list.active {
+            display: block;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-item {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            padding: 0 20px 20px;
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-uns.html">Über Uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleBrands()">Parfüms</a></li>
+            <ul class="brands-list" id="brandsList">
+                <li><a href="products-parfumsdemarley.html">Parfums De Marley</a></li>
+                <li><a href="products-xerjoff.html">Xerjoff</a></li>
+                <li><a href="products-initio.html">Initio</a></li>
+                <li><a href="products-montale.html">Montale</a></li>
+                <li><a href="products-mancera.html">Mancera</a></li>
+                <li><a href="products-nishane.html">Nishane</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Initio</h1>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="SIDE_EFFECT.jpg" alt="Side Effect">
+                <h2>Side Effect</h2>
+                <p>Ein sinnlicher Duft, der intensive Tabak- und Vanilleakkorde mit einer verführerischen Würze kombiniert.</p>
+            </div>
+            <div class="product-item">
+                <img src="MUSK_THERAPY.jpg" alt="Musk Therapy">
+                <h2>Musk Therapy</h2>
+                <p>Ein beruhigender und entspannender Duft, der durch sanfte Moschusnoten eine wohltuende Wirkung entfaltet.</p>
+            </div>
+            <div class="product-item">
+                <img src="ABSOLUTE_APHRODISIAC.jpg" alt="Absolute Aphrodisiac">
+                <h2>Absolute Aphrodisiac</h2>
+                <p>Ein intensiver und magnetischer Duft, der mit einer unverwechselbaren Mischung aus Leder und Vanille fesselt.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrands() {
+            const brandsList = document.getElementById('brandsList');
+            brandsList.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
